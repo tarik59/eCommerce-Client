@@ -1,0 +1,64 @@
+<div class="d-md-flex half">
+    <div class="bg" style="background-image: url('assets/images/bg_1.jpg');"></div>
+    <div class="contents">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-12">
+            <div class="form-block mx-auto">
+              <div class="text-center mb-5">
+                <h3 class="text-uppercase">Login to <strong style="color: #f7941d;">ecross</strong></h3>
+              </div>
+              <form  (ngSubmit)="register()" method="post">
+				  <div class="row">
+					<div class="form-group first col-md-6">
+						<label for="username">Username</label>
+						<input [(ngModel)]="model.userName" name="username" type="text" class="form-control" placeholder="Username" id="username">
+					  </div>
+					  <div class="form-group last mb-3 col-md-6">
+						<label for="city">City</label>
+						<input [(ngModel)]="model.city" name="city" type="text" class="form-control" placeholder="City" id="city">
+					  </div>
+				  </div>
+               <div class="row">
+ 
+				<div class="form-group last mb-3 col-md-6">
+					<label for="address">Address</label>
+					<input type="text" class="form-control" placeholder="Address" id="address">
+				  </div>  <div class="form-group last mb-3 col-md-6">
+					<label for="postal_code">Postal code</label>
+					<input [(ngModel)]="model.postalCode" type="text" name="postal_code" class="form-control" placeholder="Postal code" id="postal_code">
+				  </div>
+			   </div>
+
+			   <div class="row">
+				<div class="form-group last mb-3 col-md-6">
+					<label for="password">Password</label>
+					<input  [(ngModel)]="model.password" name="password" type="password" class="form-control" placeholder="Password" id="password">
+				  </div>
+				  <div class="form-group last mb-3 col-md-6">
+					<label for="confirm_password">Confirm Password</label>
+					<input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" id="confirm_password">
+				  </div>
+			   </div>
+               
+               
+                <div class="d-sm-flex mb-5 align-items-center">
+                  <label class="control control--checkbox mb-3 mb-sm-0"><span class="caption">Remember me</span>
+                    <input type="checkbox" checked="checked"/>
+                    <div class="control__indicator"></div>
+                  </label>
+                  <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span> 
+                </div>
+
+				<button style="background-color: #f7941d;" type="submit" class="btn btn-block py-2 btn-primary">Log In</button>
+              
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
