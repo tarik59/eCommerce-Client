@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/eshop.services/auth-services/auth.service';
 
@@ -9,16 +10,21 @@ import { AuthService } from 'src/app/eshop.services/auth-services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private auth:AuthService,private toastr:ToastrService) { }
+  constructor(private auth:AuthService,private toastr:ToastrService,private router:Router) {
+   
+   }
   model:any={};
   ngOnInit(): void {
-  }
+    this.auth.changeLoginState(true);
+    }
 
   login()
   {
-    console.log(this.model);
+    //console.log(this.model);
      this.auth.login(this.model).subscribe(data=>{
        localStorage.setItem('user',JSON.stringify(data));
+       this.router.navigateByUrl('');
+      
       
      },error=>{
        this.toastr.error(error.error.message);

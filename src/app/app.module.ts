@@ -11,6 +11,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MainBannerComponent } from './components/main/main-banner/main-banner.component';
+import { SmallBannerComponent } from './components/main/main-banner/small-banner/small-banner.component';
+import { TrendingItemsComponent } from './components/main/trending-items/trending-items.component';
+import { HotItemsComponent } from './components/main/hot-items/hot-items.component';
+import { MainComponent } from './components/main/main.component';
+import { MediumBannerComponent } from './components/main/main-banner/medium-banner/medium-banner.component';
+import { ShopHomeListComponent } from './components/main/shop-home-list/shop-home-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +25,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavComponent,
     LoginComponent,
     RegisterComponent,
-    FooterComponent
+    FooterComponent,
+    MainBannerComponent,
+    SmallBannerComponent,
+    TrendingItemsComponent,
+    HotItemsComponent,
+    MainComponent,
+    MediumBannerComponent,
+    ShopHomeListComponent
   ],
   imports: [
     BrowserModule,

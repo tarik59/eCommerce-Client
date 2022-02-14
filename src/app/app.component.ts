@@ -11,10 +11,13 @@ import { User } from './models/user';
 export class AppComponent {
   title = 'e-CommerceClient';
   currentUser: User;
+  hideComponents:boolean=false;
   constructor(
     private router: Router,
     private authenticationService: AuthService
 ) {
+ 
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    this.authenticationService.isLoginState.subscribe(x=>this.hideComponents=x);
 }
 }
