@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-small-banner',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class SmallBannerComponent implements OnInit {
 
   constructor() { }
-
+  @Input() products:Product[];
   ngOnInit(): void {
   }
 

@@ -5,11 +5,6 @@ import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { RegisterModel } from 'src/app/models/register-model';
 import { BehaviorSubject, Observable } from 'rxjs';
-export interface TestObj
-{
-  id:string;
-  name:string;
-}
 @Injectable({
   providedIn: 'root'
 })
