@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { ShoppingCartService } from 'src/app/eshop.services/data-services/shopping-cart.service';
 import { Product } from 'src/app/models/product';
 
 @Component({
@@ -8,9 +10,23 @@ import { Product } from 'src/app/models/product';
 })
 export class TrendingItemsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private shoppingCart:ShoppingCartService,private toastr:ToastrService) { }
   @Input() products:Product[];
   ngOnInit(): void {
+  }
+
+  addProductToCart(productId:number)
+  {
+    this.shoppingCart.addProductToShoppingCart(productId).subscribe(res=>{
+      this.toastr.success('Product added succesfully.');
+    },error=>{
+      this.toastr.error(error.error.message);
+      console.log(error.error.message);
+    })
+  }
+  changeProductQuantity()
+  {
+
   }
 
 }
