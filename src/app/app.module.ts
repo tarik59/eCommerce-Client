@@ -7,7 +7,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { LoginComponent } from './components/auth-components/login/login.component';
 import { RegisterComponent } from './components/auth-components/register/register.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +18,8 @@ import { HotItemsComponent } from './components/main/hot-items/hot-items.compone
 import { MainComponent } from './components/main/main.component';
 import { MediumBannerComponent } from './components/main/main-banner/medium-banner/medium-banner.component';
 import { ShopHomeListComponent } from './components/main/shop-home-list/shop-home-list.component';
+import { ShoppingCartComponent } from './components/main/shopping-cart/shopping-cart.component';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { ShopHomeListComponent } from './components/main/shop-home-list/shop-hom
     HotItemsComponent,
     MainComponent,
     MediumBannerComponent,
-    ShopHomeListComponent
+    ShopHomeListComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,7 @@ import { ShopHomeListComponent } from './components/main/shop-home-list/shop-hom
     }),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:JwtInterceptor,multi:true},],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
