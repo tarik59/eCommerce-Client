@@ -13,7 +13,9 @@ export class ShoppingCartService {
 
   addProductToShoppingCart(productId:number)
   {
-    return this.http.post(`https://localhost:44356/api/shoppingcart/addProduct/${productId}`,{});
+    return this.http.post(`https://localhost:44356/api/shoppingcart/addProduct`,{
+      productId: productId
+    });
   }
   getShoppingCartProducts()
   {
@@ -21,6 +23,9 @@ export class ShoppingCartService {
   }
   changeProductQuantity(productId:number,increasing:boolean)
   {
-    return this.http.put(`https://localhost:44356/api/shoppingcart/changeProductQuantity/${productId}/${increasing}`,{});
+    return this.http.post(`https://localhost:44356/api/shoppingcart/changeProductQuantity`,{
+      productId: productId,
+      increasing: increasing
+    });
   }
 }

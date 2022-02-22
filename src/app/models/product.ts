@@ -4,14 +4,15 @@ export interface Product{
      name:string
      description: string;
      price:number;
-     quantity:number; 
-     category:string; 
-     model:string; 
-     brandId:number; 
-     brand:Brand
+     quantity:number;
+     category:string;
+     model:string;
+     brandId:number;
+     brand:Brand;
      gender:Gender;
      typeOfProductId:number;
-     typeOfProduct:TypeOfProduct; 
+     typeOfProduct:TypeOfProduct;
+     url: string;
 }
 
 export interface Brand{

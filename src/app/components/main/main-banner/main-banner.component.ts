@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ShoppingCartService } from 'src/app/eshop.services/data-services/shopping-cart.service';
 import { Product } from 'src/app/models/product';
 
 @Component({
@@ -8,9 +9,11 @@ import { Product } from 'src/app/models/product';
 })
 export class MainBannerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _shoppingCartService:ShoppingCartService) { }
   @Input() product:Product;
   ngOnInit(): void {
   }
-
+  addProduct(id: number){
+    this._shoppingCartService.addProductToShoppingCart(id).subscribe();
+  }
 }

@@ -11,7 +11,7 @@ export class MainComponent implements OnInit {
 
   constructor(private _productService:ProductService) { }
 products:Product[];
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.getProductFromServer();
   }
 

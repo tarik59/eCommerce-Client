@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/eshop.services/data-services/product.service';
 import { Product } from 'src/app/models/product';
 
 @Component({
@@ -8,9 +10,14 @@ import { Product } from 'src/app/models/product';
 })
 export class SmallBannerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
   @Input() products:Product[];
   ngOnInit(): void {
+    this.productService.getAllProducts().subscribe(
+      (response: Product[]) => {
+        this.products = response;
+      }
+    )
   }
 
 }

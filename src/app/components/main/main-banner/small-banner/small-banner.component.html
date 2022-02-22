@@ -5,11 +5,9 @@
             <!-- Single Banner  -->
             <div *ngFor="let product of products" class="col-lg-4 col-md-6 col-12">
                 <div class="single-banner">
-                    <img style="width: 250;height: 250;" src="https://res.cloudinary.com/atoms-shoes/image/upload/c_scale,w_1400,q_auto,f_auto/v1622733115/products/shoes/model000/black-white_profile" alt="#">
+                    <img style="width: 250;height: 250;" src="{{product.url}}" alt="#">
                     <div class="content">
-                        <p>Man's Collectons</p>
                         <h3>{{product.name}}</h3>
-                        <a href="#">Discover Now</a>
                     </div>
                 </div>
             </div>

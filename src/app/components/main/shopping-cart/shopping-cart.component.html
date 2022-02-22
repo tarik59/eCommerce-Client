@@ -14,7 +14,7 @@
     </div>
 </div>
 <!-- End Breadcrumbs -->
-        
+
 <!-- Shopping Cart -->
 <div class="shopping-cart section">
     <div class="container">
@@ -28,7 +28,7 @@
                             <th>NAME</th>
                             <th class="text-center">UNIT PRICE</th>
                             <th class="text-center">QUANTITY</th>
-                            <th class="text-center">TOTAL</th> 
+                            <th class="text-center">TOTAL</th>
                             <th class="text-center"><i class="ti-trash remove-icon"></i></th>
                         </tr>
                     </thead>
@@ -47,7 +47,7 @@
                                             <i class="ti-minus"></i>
                                         </button>
                                     </div>
-                                    <input type="text" name="quant[1]" class="input-number"  data-min="1" data-max="100" [value]="product.quantity">
+                                    <input type="text" name="quant[1]" class="input-number"  data-min="1" data-max="100" [value]="product.quantityInShoppingCart">
                                     <div class="button plus">
                                         <button (click)="changeProductQuantity(product.id,true)" type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
                                             <i class="ti-plus"></i>
