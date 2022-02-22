@@ -47,7 +47,8 @@ export class ShoppingCartComponent implements OnInit {
   {
     this.orderService.createOrder().subscribe(x=>{
       this.toastr.success('Order created.');
-      window.location.reload();
+      //window.location.reload();
+      this.products=[];
     },error=>{
       this.toastr.error('Erorr 10');
     })

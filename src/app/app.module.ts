@@ -20,6 +20,7 @@ import { MediumBannerComponent } from './components/main/main-banner/medium-bann
 import { ShopHomeListComponent } from './components/main/shop-home-list/shop-home-list.component';
 import { ShoppingCartComponent } from './components/main/shopping-cart/shopping-cart.component';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { OrdersComponent } from './components/main/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     MainComponent,
     MediumBannerComponent,
     ShopHomeListComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

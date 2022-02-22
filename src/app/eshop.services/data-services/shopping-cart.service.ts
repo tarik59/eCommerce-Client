@@ -13,6 +13,7 @@ export class ShoppingCartService {
 
   addProductToShoppingCart(productId:number)
   {
+    console.log(productId);
     return this.http.post(`https://localhost:44356/api/shoppingcart/addProduct`,{
       productId: productId
     });

@@ -1,0 +1,84 @@
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
+                        <li class="active"><a href="blog-single.html">Cart</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+
+<!-- Shopping Cart -->
+<div class="shopping-cart section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Shopping Summery -->
+                <table class="table shopping-summery">
+                    <thead>
+                        <tr class="main-hading">
+                            <th>Created At</th>
+                            <th>Last Modified</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-center">Nr. of Products</th>
+                            <th class="text-center">TOTAL</th>
+                            <!-- <th class="text-center"><i class="ti-trash remove-icon"></i></th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let order of orders">
+                            <td class="image" data-title="No">{{order.createdAt}}</td>
+                            <td class="product-des" data-title="Description">{{order.lastModified}}</td>
+                            <td class="price" data-title="Price"><span>${{orders.length}}</span></td>
+                            <td class="total-amount" data-title="Total"><span>$220.88</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--/ End Shopping Summery -->
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-12">
+                <div class="total-amount">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-5 col-12">
+                            <div class="left">
+                                <div class="coupon">
+                                    <form action="#" target="_blank">
+                                        <input name="Coupon" placeholder="Enter Your Coupon">
+                                        <button class="btn">Apply</button>
+                                    </form>
+                                </div>
+                                <div class="checkbox">
+                                    <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox"> Shipping (+10$)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-7 col-12">
+                            <div class="right">
+                                <ul>
+                                    <li>Cart Subtotal<span>$</span></li>
+                                    <li>Shipping<span>Free</span></li>
+                                    <li>You Save<span>$20.00</span></li>
+                                    <li class="last">You Pay<span>$</span></li>
+                                </ul>
+                                <div class="button5">
+                                    <button class="btn">Order now</button>
+                                    <a href="#" class="btn">Continue shopping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+<!--/ End Shopping Cart -->

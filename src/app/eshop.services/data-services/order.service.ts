@@ -12,4 +12,8 @@ export class OrderService {
   {
     return this.http.post('https://localhost:44356/api/orders',{});
   }
+  getAllOrdersByUser()
+  {
+    return this.http.get<any []>('https://localhost:44356/api/orders');
+  }
 }

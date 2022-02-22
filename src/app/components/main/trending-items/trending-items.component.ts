@@ -17,6 +17,7 @@ export class TrendingItemsComponent implements OnInit {
 
   addProductToCart(productId:number)
   {
+    console.log(productId);
     this.shoppingCart.addProductToShoppingCart(productId).subscribe(res=>{
       this.toastr.success('Product added succesfully.');
     },error=>{
