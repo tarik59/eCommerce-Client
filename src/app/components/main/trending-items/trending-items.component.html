@@ -42,12 +42,12 @@
 																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
 															</div>
 															<div class="product-action-2">
-																<a (click)=" addProductToCart(product.id)" title="Add to cart" href="#">Add to cart</a>
+																<a (click)="addProductToCart(product.id)" title="Add to cart" >Add to cart</a>
 															</div>
 														</div>
 													</div>
 													<div class="product-content">
-														<h3><a href="product-details.html">{{product.name}}</a></h3>
+														<h3><a href="product-details.html">{{product.name}}{{product.id}}</a></h3>
 														<div class="product-price">
 															<span>${{product.price}}</span>
 														</div>
