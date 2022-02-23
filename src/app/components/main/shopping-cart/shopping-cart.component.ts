@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { OrderService } from 'src/app/eshop.services/data-services/order.service';
 import { ShoppingCartService } from 'src/app/eshop.services/data-services/shopping-cart.service';
-import { Product } from 'src/app/models/product';
+import { Product, ProductInShoppingCart, ShoppingCart } from 'src/app/models/product';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -11,24 +11,25 @@ import { Product } from 'src/app/models/product';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor(private toastr:ToastrService,private shoppingCart:ShoppingCartService,private orderService:OrderService) { }
+  constructor(private toastr:ToastrService,private _shoppingCartService:ShoppingCartService,private orderService:OrderService) { }
 
   ngOnInit(): void {
-    this.getShoppingCartProducts();
+    this.getShoppingCart();
   }
-  products:Product[];
+  shoppingCart: ShoppingCart;
 
-  getShoppingCartProducts()
+  getShoppingCart()
   {
-    this.shoppingCart.getShoppingCartProducts().subscribe(products=>{
-      this.products=products;
+    this._shoppingCartService.getShoppingCart().subscribe(shoppingCart=>{
+      this.shoppingCart=shoppingCart;
     },error=>{
       console.log(error.error);
     })
   }
-  changeProductQuantity(productId:number,increasing:boolean)
+  changeProductQuantity(product:ProductInShoppingCart,increasing:boolean)
   {
-    this.shoppingCart.changeProductQuantity(productId,increasing).subscribe(response=>{
+    product.quantityInShoppingCart = increasing==true ? product.quantityInShoppingCart++ : product.quantityInShoppingCart--;
+    this._shoppingCartService.changeProductQuantity(product.id,increasing).subscribe(response=>{
       this.toastr.success('success');
     },error=>{
       console.log(error.error);
@@ -38,7 +39,7 @@ export class ShoppingCartComponent implements OnInit {
   sumShoppingCartTotal()
   {
     let s=0;
-    this.products.forEach((product)=>{
+    this.shoppingCart.products.forEach((product)=>{
       s+=(product.price);
     })
     return s;

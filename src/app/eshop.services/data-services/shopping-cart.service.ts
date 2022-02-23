@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product } from 'src/app/models/product';
+import { Product, ShoppingCart } from 'src/app/models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,9 @@ export class ShoppingCartService {
       productId: productId
     });
   }
-  getShoppingCartProducts()
+  getShoppingCart()
   {
-    return this.http.get<Product[]>(`https://localhost:44356/api/shoppingcart/Products`);
+    return this.http.get<ShoppingCart>(`https://localhost:44356/api/shoppingcart`);
   }
   changeProductQuantity(productId:number,increasing:boolean)
   {
