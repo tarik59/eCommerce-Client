@@ -28,9 +28,9 @@ export class ShoppingCartComponent implements OnInit {
   }
   changeProductQuantity(product:ProductInShoppingCart,increasing:boolean)
   {
-    product.quantityInShoppingCart = increasing==true ? product.quantityInShoppingCart++ : product.quantityInShoppingCart--;
+    product.quantityInShoppingCart = increasing ? product.quantityInShoppingCart + 1 : product.quantityInShoppingCart - 1;
+    product.productTotalPrice += product.price;
     this._shoppingCartService.changeProductQuantity(product.id,increasing).subscribe(response=>{
-      this.toastr.success('success');
     },error=>{
       console.log(error.error);
     })
@@ -44,12 +44,16 @@ export class ShoppingCartComponent implements OnInit {
     })
     return s;
   }
+  removeProduct(product: ProductInShoppingCart){
+    this._shoppingCartService.removeProductFromShoppingCart(product.id).subscribe();
+    this.getShoppingCart();
+  }
   createOrder()
   {
     this.orderService.createOrder().subscribe(x=>{
       this.toastr.success('Order created.');
       //window.location.reload();
-      this.products=[];
+      this.getShoppingCart();
     },error=>{
       this.toastr.error('Erorr 10');
     })

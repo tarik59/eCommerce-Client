@@ -29,4 +29,9 @@ export class ShoppingCartService {
       increasing: increasing
     });
   }
+  removeProductFromShoppingCart(productId:number) {
+    return this.http.post(`https://localhost:44356/api/shoppingcart/deleteProduct`,{
+      productId: productId
+    });
+  }
 }

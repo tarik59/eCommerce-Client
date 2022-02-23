@@ -16,7 +16,7 @@
 <!-- End Breadcrumbs -->
 
 <!-- Shopping Cart -->
-<div class="shopping-cart section">
+<div class="shopping-cart section" *ngIf="shoppingCart">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -43,13 +43,13 @@
                             <td class="qty" data-title="Qty"><!-- Input Order -->
                                 <div class="input-group">
                                     <div class="button minus">
-                                        <button (click)="changeProductQuantity(product,false)" type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                        <button (click)="changeProductQuantity(product,false)" type="button" class="btn btn-primary btn-number" [disabled]="product.quantityInShoppingCart <= 1" data-type="minus" data-field="quant[1]">
                                             <i class="ti-minus"></i>
                                         </button>
                                     </div>
-                                    <input type="text" name="quant[1]" class="input-number"  data-min="1" data-max="100" [(ngModel)]="product.quantityInShoppingCart">
+                                    <input type="text" name="quant[1]" class="input-number"  data-min="1" [max]="product.quantity" [(ngModel)]="product.quantityInShoppingCart">
                                     <div class="button plus">
-                                        <button (click)="changeProductQuantity(product,true)" type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
+                                        <button [disabled]="product.quantityInShoppingCart == product.quantity" (click)="changeProductQuantity(product,true)" type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
                                             <i class="ti-plus"></i>
                                         </button>
                                     </div>
@@ -57,7 +57,7 @@
                                 <!--/ End Input Order -->
                             </td>
                             <td class="total-amount" data-title="Total"><span>{{product.productTotalPrice}}</span></td>
-                            <td class="action" data-title="Remove"><a href="#"><i class="ti-trash remove-icon"></i></a></td>
+                            <td class="action" data-title="Remove"><button (click)="removeProduct(product)"><i class="ti-trash remove-icon"></i></button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -77,7 +77,7 @@
                                     <li>Cart Total<span>{{shoppingCart.totalPrice}}</span></li>
                                 </ul>
                                 <div class="button5">
-                                    <button (click)="createOrder()" class="btn">Order now</button>
+                                    <button [disabled]="shoppingCart.products.length ==0" (click)="createOrder()" class="btn">Order now</button>
                                     <a href="#" class="btn">Continue shopping</a>
                                 </div>
                             </div>
